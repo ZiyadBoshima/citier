@@ -17,9 +17,9 @@ export class PlacesGateway implements OnModuleInit {
   }
 
   @SubscribeMessage('place-details')
-  async onRequestPlacesDetails(@ConnectedSocket() client: Socket, @MessageBody() body: any) {
-    const placeDetails = await this.placesService.getPlaceDetails(body)
-    
+  async onRequestPlacesDetails(@ConnectedSocket() client: Socket, @MessageBody() placeName: any) {
+    const placeDetails = await this.placesService.getPlaceDetails(placeName)
+
     this.server.to(client.id).emit('place-details', placeDetails)
   }
 }

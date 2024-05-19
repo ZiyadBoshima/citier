@@ -26,7 +26,6 @@ const Pitch = ({ cityName, pitch }: PitchType ) => {
             <>{pitchState}</>
         )}
         </div>
-
     </div>
   )
 }

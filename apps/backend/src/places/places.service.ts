@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose'
+import { Model } from 'mongoose'
 import { OpenaiService } from 'src/openai/openai.service'
+import { Place } from 'src/schemas/place.schema'
 
 @Injectable()
 export class PlacesService {
@@ -8,9 +11,18 @@ export class PlacesService {
     ' city below, naming places of historical, cultural, or innovative significance.' +
     ' Start your sentences in a creative manner. Do not address the travellers directly.' 
 
-  constructor(private readonly openaiService: OpenaiService) {}
+  constructor(private readonly openaiService: OpenaiService, @InjectModel(Place.name) private placeModel: Model<Place>) {}
 
-  getPlaceDetails(placeName: string) {
-    return this.openaiService.createCompletion(placeName, this.CONTEXT, this.INSTRUCTION)
+  async getPlaceDetails(placeName: string) {
+    const place = await this.placeModel.findOne({ name: placeName.toLowerCase() })
+
+    if (!place) {
+      const placeDetails = await this.openaiService.createCompletion(placeName, this.CONTEXT, this.INSTRUCTION)
+      const newPlace = await new this.placeModel({ name: placeName.toLowerCase(), details: placeDetails }).save()
+
+      return newPlace.details
+    }
+
+    return place.details
   }
 }

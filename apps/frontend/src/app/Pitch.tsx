@@ -1,13 +1,32 @@
-const Pitch = () => {
+import { PitchType } from "@/types/pitch"
+import { useEffect, useState } from "react"
+import { io } from "socket.io-client"
+import { OrbitProgress } from "react-loading-indicators"
+
+const Pitch = ({ cityName, pitch }: PitchType ) => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [pitchState, setPitchState] = useState(pitch)
+
+  useEffect(() => {
+    const socket = io('http://localhost:5000');
+    socket.emit('place-details', cityName)
+    socket.on('place-details', (pitch) => {
+      setPitchState(pitch)
+      setIsLoading(false)
+    });
+  }, []);
+  
   return (
     <div className="border rounded-3xl border-black py-3 px-5">
-      <p className="font-semibold">Hamburg</p>
-      <div className="mt-2 max-h-52 overflow-auto w-full">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. A explicabo consequatur quo, magnam ducimus voluptatibus distinctio? Sint nihil nemo quas minima aspernatur eligendi! Id nemo vero magni dolor possimus saepe.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. A explicabo consequatur quo, magnam ducimus voluptatibus distinctio? Sint nihil nemo quas minima aspernatur eligendi! Id nemo vero magni dolor possimus saepe.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. A explicabo consequatur quo, magnam ducimus voluptatibus distinctio? Sint nihil nemo quas minima aspernatur eligendi! Id nemo vero magni dolor possimus saepe.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. A explicabo consequatur quo, magnam ducimus voluptatibus distinctio? Sint nihil nemo quas minima aspernatur eligendi! Id nemo vero magni dolor possimus saepe.
-      </div>
+      <p className="font-semibold">{cityName}</p>
+        <div className="mt-2 max-h-52 overflow-auto w-full">
+        { isLoading ? (
+            <OrbitProgress size="small" color="black" />
+          ) : (
+            <>{pitchState}</>
+        )}
+        </div>
+
     </div>
   )
 }

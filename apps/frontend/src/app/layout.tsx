@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + ' ' + 'm-auto max-w-screen-md p-10'}>
+        {children}
+      </body>
     </html>
   );
 }

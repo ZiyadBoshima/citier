@@ -3,7 +3,7 @@ import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSo
 import { Server, Socket } from 'socket.io'
 import { PlacesService } from "./places.service"
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: '*'})
 export class PlacesGateway implements OnModuleInit {
   @WebSocketServer()
   server: Server

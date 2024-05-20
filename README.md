@@ -6,8 +6,7 @@ This is a single-page Next.js application that allows users to request short pit
 
 ## Features
 
-- Users can enter a city name and request a pitch text.
-- Loading indicators are shown while waiting for pitch data to be delivered from the backend.
+- Users can enter a city name and request a pitch.
 - Pitch items are dynamically updated with pitch text once it is received from the backend.
 
 ## Project Structure

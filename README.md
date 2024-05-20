@@ -16,6 +16,13 @@ The project uses a monorepo structure with the following workspaces:
 - `frontend`: Contains the Next.js application for the frontend.
 - `backend`: Contains the Nest.js application for the backend.
 
+## Requirements
+
+Make sure you have the following software installed:
+
+- `pnpm`
+- `git`
+
 ## Installation
 
 1. Clone this repository:

@@ -13,6 +13,7 @@ const Pitch = ({ cityName, pitch }: PitchType ) => {
     socket.on('place-details', (pitch) => {
       setPitchState(pitch)
       setIsLoading(false)
+      socket.disconnect()
     });
   }, []);
   

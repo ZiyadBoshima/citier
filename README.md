@@ -48,7 +48,7 @@ To run both the frontend and backend simultaneously, use the following command i
 pnpm run dev
 ```
 
-This command starts both the Nest.js and Next.js apps in parallel.
+This command starts both the Nest.js (port: 5000) and Next.js (port: 3000) apps in parallel.
 
 ## Technologies Used
 

@@ -11,13 +11,13 @@ export class PlacesGateway implements OnModuleInit {
   constructor(private readonly placesService: PlacesService) {}
 
   onModuleInit() {
-      this.server.on('connection', (socket) => {
-        console.log(socket.id + ' connected.')
-      })
+    this.server.on('connection', (socket) => {
+      console.log(socket.id + ' connected.')
+    })
   }
 
   @SubscribeMessage('place-details')
-  async onRequestPlacesDetails(@ConnectedSocket() client: Socket, @MessageBody() placeName: any) {
+  async onRequestPlacesDetails(@ConnectedSocket() client: Socket, @MessageBody() placeName: string) {
     const placeDetails = await this.placesService.getPlaceDetails(placeName)
 
     this.server.to(client.id).emit('place-details', placeDetails)

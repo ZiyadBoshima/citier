@@ -21,8 +21,8 @@ The project uses a monorepo structure with the following workspaces:
 1. Clone this repository:
 
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone https://github.com/ZiyadBoshima/citier.git
+   cd citier
    ```
 
 2. In the root directory, install the dependencies both projects with:

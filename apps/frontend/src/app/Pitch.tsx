@@ -15,7 +15,7 @@ const Pitch = ({ cityName, pitch }: PitchType ) => {
       setIsLoading(false)
       socket.disconnect()
     });
-  }, []);
+  }, [cityName]);
   
   return (
     <div className="border rounded-3xl border-black py-3 px-5">

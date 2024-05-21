@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a single-page Next.js application that allows users to request short pitches or texts about cities from a Nest.js backend. Users can enter a city name and request a pitch. The backend then delivers the pitch text, which is automatically updated in the frontend.
+This is a single-page Next.js application that allows users to request short pitches about cities from a Nest.js backend. Users can enter a city name and request a pitch. The backend then delivers the pitch text, which is automatically updated in the frontend.
 
 ## Features
 

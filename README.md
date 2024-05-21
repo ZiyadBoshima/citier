@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a single-page Next.js application that allows users to request short pitches or texts about cities from a Nest.js backend. Users can enter a city name and request a pitch. The backend then delivers the pitch text, which is automatically updated in the frontend.
+This is a single-page Next.js application that allows users to request short pitches about cities from a Nest.js backend. Users can enter a city name and request a pitch. The backend then delivers the pitch text, which is automatically updated in the frontend.
 
 ## Features
 
@@ -32,7 +32,7 @@ Make sure you have the following software installed:
    cd citier
    ```
 
-2. In the root directory, install the dependencies both projects with:
+2. In the root directory, install the dependencies for both projects with a single command:
 
    ```bash
    pnpm -r install
@@ -43,8 +43,8 @@ Make sure you have the following software installed:
    Copy the .env file in the backend directory and rename it to `.env.local`, and add the values for the following variables:
 
    ```env
-    MONGO_URI =
-    OPENAI_KEY =
+    MONGO_URI = # for the MongoDB database
+    OPENAI_KEY = # for the OpenAI API
    ```
 
 ## Running the Application

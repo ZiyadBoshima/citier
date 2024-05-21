@@ -32,7 +32,7 @@ Make sure you have the following software installed:
    cd citier
    ```
 
-2. In the root directory, install the dependencies both projects with:
+2. In the root directory, install the dependencies for both projects with a single command:
 
    ```bash
    pnpm -r install

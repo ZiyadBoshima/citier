@@ -43,8 +43,8 @@ Make sure you have the following software installed:
    Copy the .env file in the backend directory and rename it to `.env.local`, and add the values for the following variables:
 
    ```env
-    MONGO_URI =
-    OPENAI_KEY =
+    MONGO_URI = # for the MongoDB database
+    OPENAI_KEY = # for the OpenAI API
    ```
 
 ## Running the Application
